@@ -9,6 +9,7 @@ use App\Enums\FilterStorage;
 use App\Enums\FilterType;
 use App\Http\Requests\FilterRequest;
 use App\Interfaces\ServerRepositoryInterface;
+use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response as HttpResponse;
@@ -43,7 +44,11 @@ class ServerDataController extends Controller
     // Imports new excel file and set data to Cache
     public function import(Request $request): JsonResponse
     {
-        $this->serverRepository->import($request);
-        return response()->json(['status' => 'success'], HttpResponse::HTTP_OK);
+        try{
+            $this->serverRepository->import($request);
+            return response()->json(['status' => 'success'], HttpResponse::HTTP_OK);
+        }catch(Exception $ex){
+            return response()->json(['status' => 'error'], HttpResponse::HTTP_INTERNAL_SERVER_ERROR);
+        }
     }
 }
