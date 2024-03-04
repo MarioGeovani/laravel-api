@@ -22,12 +22,12 @@ class ServerRepository implements ServerRepositoryInterface
     public function processServersData(bool $useCache = false): Object
     {
         if($useCache){
-            $cachedData = $this->cache->get(CacheManager::SERVER_LIST_KEY);
+            $cachedData = $this->cache->get('', CacheManager::SERVER_LIST_KEY);
             if (! empty($cachedData)) {
                 $this->data = $cachedData;
             }else{
                 $this->loadData();
-                $this->cache->set(CacheManager::SERVER_LIST_KEY, '', $this->data);
+                $this->cache->set('', CacheManager::SERVER_LIST_KEY, $this->data);
             }
         }else{
             $this->loadData();
@@ -104,12 +104,12 @@ class ServerRepository implements ServerRepositoryInterface
     public function getLocationData(bool $useCache = false): array
     {
         if($useCache){
-            $cachedData = $this->cache->get(CacheManager::LOCATION_LIST_KEY);
+            $cachedData = $this->cache->get('', CacheManager::LOCATION_LIST_KEY);
             if (! empty($cachedData)) {
                 return $cachedData;
             }else{
                 $this->loadData();
-                $this->cache->set(CacheManager::LOCATION_LIST_KEY, '', $this->locationData);
+                $this->cache->set('', CacheManager::LOCATION_LIST_KEY, $this->locationData);
             }
         }else{
             $this->loadData();
