@@ -36,9 +36,9 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::group(['prefix' => '/servers'],
     function () {
         Route::controller(ServerDataController::class)->group(function() {
-            Route::get('/', 'list', ['as' => 'server.data.list']);
-            Route::post('/import', 'import', ['as' => 'server.file.import']);
-            Route::get('/filters', 'filters', ['as' => 'filters.list']);
+            Route::get('/', 'list')->name('server.data.list');
+            Route::post('/import', 'import')->name('server.file.import');
+            Route::get('/filters', 'filters')->name('filters.list');
         });
     });
 
