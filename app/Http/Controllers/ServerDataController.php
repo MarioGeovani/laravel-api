@@ -49,7 +49,7 @@ class ServerDataController extends Controller
     {
         //The FormRequest Doesnt deal very well with the upload files validation
 
-        if($request->file('file',[])?->getClientOriginalExtension() != 'xlsx'){
+        if($request->file('file', null)?->getClientOriginalExtension() != 'xlsx'){
             return response()->json(['status' => 'error'], HttpResponse::HTTP_UNPROCESSABLE_ENTITY);
         }
 
