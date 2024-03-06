@@ -21,7 +21,13 @@ class ServerDataController extends Controller
     public function __construct(private readonly ServerRepositoryInterface $serverRepository)
     {}
 
-    // Get server list and filter by the request
+
+     /**
+     *  Get server list and filter by the request
+     *
+     * @param  \Requests\FilterRequest  $request
+     * @return \Illuminate\Http\Response
+     */
     public function list(FilterRequest $request): JsonResponse
     {
         return response()->json(
@@ -30,7 +36,13 @@ class ServerDataController extends Controller
                             );
     }
 
-    // Gets Filters information to help on /list request
+
+     /**
+     *  Gets Filters information to help on /servers endpoint
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function filters() : JsonResponse{
 
         $response = [
@@ -44,7 +56,12 @@ class ServerDataController extends Controller
         return response()->json($response, HttpResponse::HTTP_OK);
     }
 
-    // Imports new excel file and set data to Cache
+
+    /**
+     *  Imports new excel file and set data to Cache
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function import(Request $request): JsonResponse
     {
         //The FormRequest Doesnt deal very well with the upload files validation
