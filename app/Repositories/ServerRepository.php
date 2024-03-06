@@ -128,7 +128,7 @@ class ServerRepository implements ServerRepositoryInterface
         //Parse info to cache
         $import =$this->getExcelData();
         //Always set to cache on import
-        $this->cache->set(CacheManager::SERVER_LIST_KEY, CacheManager::SERVER_LIST_KEY, $import->getAllDataArray());
+        $this->cache->set('', CacheManager::SERVER_LIST_KEY, $import->getAllDataArray());
     }
 
     private function isValidHddItem(string $value, string $maxStorage, string $minStorage): bool{

@@ -2,8 +2,10 @@
 
 namespace Tests\Feature;
 
+use app\Cache\CacheManager;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
@@ -48,6 +50,8 @@ class ServerImportTest extends TestCase
         ->isOk();
 
         Storage::fake()->exists(storage_path($this->testUploadFile));
+
+        $this->assertTrue(Cache::has(CacheManager::SERVER_LIST_KEY . '_'));
     }
 
     public function test_the_import_is_not_successful(): void
