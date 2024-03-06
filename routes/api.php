@@ -23,14 +23,14 @@ Route::get('/', function () {
 
 //Public Routes
 Route::controller(LoginRegisterController::class)->group(function() {
-    Route::post('/register', 'register');
-    Route::post('/login', 'login');
+    Route::post('/register', 'register')->name('user.register');
+    Route::post('/login', 'login')->name('user.login');
 });
 
 //Authenticated Routes
 Route::middleware('auth:sanctum')->group(function() {
     Route::controller(LoginRegisterController::class)->group(function() {
-        Route::get('/user', 'user');
+        Route::get('/user', 'user')->name('user.details');
     });
 
     Route::group(['prefix' => '/servers'],

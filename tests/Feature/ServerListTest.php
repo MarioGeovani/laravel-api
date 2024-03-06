@@ -79,11 +79,6 @@ class ServerListTest extends TestCase
 
     }
 
-    public function test_the_route_returns_no_results(): void
-    {
-
-    }
-
     public static function provideFilterParamScenarios(): array
     {
         return [
