@@ -3,24 +3,24 @@
 namespace Tests\Feature;
 
 use App\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class LoginRegisterTest extends TestCase
 {
     use WithFaker;
-    use RefreshDatabase;
 
     public function setUp(): void
     {
         parent::setUp();
+
+        $this->withoutMiddleware();
     }
 
     public function test_the_route_register_a_new_user_with_success(): void
     {
         $name = $this->faker()->name();
-        $email = $this->faker()->email();
+        $email = $this->faker()->userName().'@testdomain.com';
         $password = $this->faker()->password(9,12);
 
         $response = $this->post(route('user.register', [
@@ -64,7 +64,7 @@ class LoginRegisterTest extends TestCase
     public function test_the_route_register_a_new_user_and_login_with_error(): void
     {
         $name = $this->faker()->name();
-        $email = $this->faker()->email();
+        $email = $this->faker()->userName().'@testdomain.com';
         $password = $this->faker()->password(9,12);
 
         $this->post(route('user.register', [
@@ -90,7 +90,7 @@ class LoginRegisterTest extends TestCase
     public function test_the_route_register_a_new_user_and_login_with_success(): void
     {
         $name = $this->faker()->name();
-        $email = $this->faker()->email();
+        $email = $this->faker()->userName().'@testdomain.com';
         $password = $this->faker()->password(9,12);
 
         $this->post(route('user.register', [
@@ -112,7 +112,7 @@ class LoginRegisterTest extends TestCase
     public function test_the_route_register_a_new_user_and_login_with_success_and_get_details_by_token(): void
     {
         $name = $this->faker()->name();
-        $email = $this->faker()->email();
+        $email = $this->faker()->userName().'@testdomain.com';
         $password = $this->faker()->password(9,12);
 
         $this->post(route('user.register', [

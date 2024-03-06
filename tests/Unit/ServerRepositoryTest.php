@@ -64,7 +64,11 @@ class ServerRepositoryTest extends TestCase
 
     public function test_that_processServersData_filter_returns_array_with_cache(): void
     {
-        $this->serverRepository = new ServerRepository(new CacheManager);
+        $this->cacheManager = Mockery::mock(CacheManager::class);
+        $this->cacheManager->expects()->get('', CacheManager::SERVER_LIST_KEY)->andReturns([]);
+        $this->cacheManager->expects()->set('', CacheManager::SERVER_LIST_KEY, Mockery::any());
+
+        $this->serverRepository = new ServerRepository($this->cacheManager);
         $object = $this->serverRepository->processServersData(true);
 
         $request =  Mockery::mock(Request::class)->shouldIgnoreMissing();
