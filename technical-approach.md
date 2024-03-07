@@ -1,6 +1,10 @@
 # Technical Approach
 
 ## Laravel Sail
+# Dependencies :
+- [Docker](https://www.docker.com/products/docker-desktop/)
+- [WSL2](https://pureinfotech.com/install-windows-subsystem-linux-2-windows-10/) (for windows)
+
 For local hosting and development, Laravel Sail was chosen.
 It enables a fast way to spin up an environment without concerns.
 For more information, refer to the [Laravel Sail documentation](https://laravel.com/docs/10.x/sail).

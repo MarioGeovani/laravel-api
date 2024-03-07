@@ -78,9 +78,9 @@ sail up --build
 ```bash
 ./vendor/bin/sail artisan migrate
 ```
-  Should be Up and running
+ - Should be Up and running
 
-  to exit Sail just ctrl+c or
+ - to exit Sail just ctrl+c or
 ```bash
 ./vendor/bin/sail up
 ```
