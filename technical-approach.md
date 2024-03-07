@@ -33,5 +33,11 @@ In some cases, method chaining was applied to enhance readability and organizati
 ## Test coverage
 Tests: 27 passed (75 assertions)
 
+### Packages:
+For this development was used the Laravel Excel a well known package to handle Excel files:
+- [Details](https://docs.laravel-excel.com/3.0/getting-started/)
+- [Installation](https://docs.laravel-excel.com/3.0/getting-started/installation.html)
+
+
 ## API Consumers
 All requests and Endpoints are documented on [Postman](https://documenter.getpostman.com/view/6976430/2sA2xfXYWR)

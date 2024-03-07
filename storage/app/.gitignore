@@ -1,3 +1,4 @@
 #*
 #!public/
 #!.gitignore
+storage/app/var/www/html/storage/filesource/*
