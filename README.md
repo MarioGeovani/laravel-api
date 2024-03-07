@@ -24,7 +24,7 @@ https://www.hostinger.com/tutorials/how-to-install-composer
 ```bash
 composer install
 ```
-  Note in case of Ubunto :
+ - Note in case of Ubunto :
     - Go an issue with  ext-dg depedency
         - sudo apt-get update
         - php -v (check version to choose the correct php package version in my case 8.3)
