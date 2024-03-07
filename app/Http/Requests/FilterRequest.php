@@ -36,18 +36,4 @@ class FilterRequest extends FormRequest
             FilterParams::LOCATION->value => 'sometimes|string:min1',
         ];
     }
-
-   /*
-    public function passes()
-    {
-        $firstParam = $this->input(FilterParams::MAX_STORAGE->value);
-        $secondParam = $this->input(FilterParams::MIN_STORAGE->value);
-
-        // Check if the position of first_param is greater than the position of second_param
-        if ($this->indexPosition($firstParam) > $this->indexPosition($secondParam)) {
-            return true;
-        }
-
-        return false;
-    }*/
 }
