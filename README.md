@@ -55,7 +55,7 @@ sudo APP_PORT={the port you want the site to run}
 ### Every New Instance
 - Spin up the application
 ```bash
-./etc/bin/up
+./vendor/bin/sail up
 ```
 
 - if any issues on website local server plse check the local server port
@@ -82,6 +82,6 @@ sail up --build
 
  - to exit Sail just ctrl+c or
 ```bash
-./vendor/bin/sail up
+./vendor/bin/sail down
 ```
 
