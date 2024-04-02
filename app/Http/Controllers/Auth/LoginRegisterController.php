@@ -30,7 +30,6 @@ class LoginRegisterController extends Controller
         $data['user'] = $user;
 
         $response = [
-            'status' => 'success',
             'message' => 'User is created successfully.',
             'data' => $data,
         ];
@@ -52,7 +51,6 @@ class LoginRegisterController extends Controller
         // Check password
         if(!$user || !Hash::check($request->password, $user->password)) {
             return response()->json([
-                'status' => 'failed',
                 'message' => 'Invalid credentials'
                 ], HttpResponse::HTTP_UNAUTHORIZED);
         }
@@ -61,7 +59,6 @@ class LoginRegisterController extends Controller
         $data['user'] = $user;
 
         $response = [
-            'status' => 'success',
             'message' => 'User is logged in successfully.',
             'data' => $data
         ];

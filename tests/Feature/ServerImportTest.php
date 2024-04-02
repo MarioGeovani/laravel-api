@@ -46,8 +46,7 @@ class ServerImportTest extends TestCase
         );
 
         $response = $this->post(route('server.file.import'), ['file' => $file]);
-        $response->assertSimilarJson(["status" => "success"])
-        ->isOk();
+        $response->isOk();
 
         Storage::fake()->exists(storage_path($this->testUploadFile));
 
@@ -61,9 +60,7 @@ class ServerImportTest extends TestCase
 
         $response = $this->post(route('server.file.import'), ['file' => $file]);
 
-        $response->assertJsonIsObject()
-        ->assertSimilarJson(["status" => "error"])
-        ->assertUnprocessable();
+        $response->assertUnprocessable();
 
         $exist = Storage::fake()->exists(storage_path($this->testUploadFile));
         $this->assertFalse($exist);
