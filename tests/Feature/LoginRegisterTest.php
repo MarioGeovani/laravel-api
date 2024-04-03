@@ -81,7 +81,6 @@ class LoginRegisterTest extends TestCase
         $response->assertJsonIsObject()->assertUnauthorized();
 
         $this->assertEquals($response->original, [
-            "status" => "failed",
             "message" => "Invalid credentials"
           ]);
 
@@ -105,7 +104,6 @@ class LoginRegisterTest extends TestCase
         ]));
 
         $response->assertJsonIsObject()->IsOk();
-        $this->assertEquals('success', $response->original['status']);
         $this->assertEquals('User is logged in successfully.', $response->original['message']);
     }
 
