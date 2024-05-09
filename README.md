@@ -1,6 +1,6 @@
-# Leaseweb rest API
+# Laravel rest API
 
-The goal of this project is accomplish the requirements on the Backend Assessment.
+The goal of this project create an optimized Laravel API .
 
 
 ## Running the application
