@@ -9,7 +9,7 @@ The goal of this project create an optimized Laravel API .
 https://www.atlassian.com/git/tutorials/install-git
 ### First time Setup
 ```bash
-git clone git@github.com:MarioGeovani/laravel-api.git
+https://github.com/mariodiasbatista/laravel-api.git
 ```
 
 - Copy the `.env.example` to `.env` and edit accordingly
